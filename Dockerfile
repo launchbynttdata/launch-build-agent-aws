@@ -5,6 +5,9 @@ FROM ghcr.io/launchbynttdata/launch-build-agent-base:latest as base
 ENV TOOLS_DIR="/usr/local/opt" \
     IS_PIPELINE=true
 
+# Allows us to rerun repo sync in the AWS manifest context
+RUN rm -fr .repo/ components/
+
 COPY "./Makefile" "${TOOLS_DIR}/launch-build-agent/Makefile"
 ENV BUILD_ACTIONS_DIR="${TOOLS_DIR}/launch-build-agent/components/build-actions" \
     PATH="$PATH:${BUILD_ACTIONS_DIR}" \

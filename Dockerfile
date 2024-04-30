@@ -2,6 +2,10 @@ ARG LAUNCH_PROVIDER="aws"
 
 FROM ghcr.io/launchbynttdata/launch-build-agent-base:latest as base
 
+ENV CONTAINER_REGISTRY="ghcr.io/launchbynttdata" \
+    CONTAINER_IMAGE_NAME="launch-build-agent-aws" \
+    CONTAINER_IMAGE_VERSION="latest"
+
 ENV TOOLS_DIR="/usr/local/opt" \
     IS_PIPELINE=true
 

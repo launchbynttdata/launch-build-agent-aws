@@ -1,0 +1,5 @@
+.repo/
+components/
+
+.pre-commit-config.yaml
+Makefile.container.includes

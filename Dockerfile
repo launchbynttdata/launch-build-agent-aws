@@ -1,10 +1,10 @@
 ARG LAUNCH_PROVIDER="aws"
 
-FROM ghcr.io/launchbynttdata/launch-build-agent-base:latest as base
+FROM ghcr.io/launchbynttdata/launch-build-agent-base:patch-launch-cli-rebuild as base
 
 ENV CONTAINER_REGISTRY="ghcr.io/launchbynttdata" \
     CONTAINER_IMAGE_NAME="launch-build-agent-aws" \
-    CONTAINER_IMAGE_VERSION="latest"
+    CONTAINER_IMAGE_VERSION="patch-launch-cli-rebuild "
 
 ENV TOOLS_DIR="/home/launch/tools" \
     IS_PIPELINE=true

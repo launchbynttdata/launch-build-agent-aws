@@ -4,7 +4,7 @@ FROM ghcr.io/launchbynttdata/launch-build-agent-base:patch-launch-cli-rebuild as
 
 ENV CONTAINER_REGISTRY="ghcr.io/launchbynttdata" \
     CONTAINER_IMAGE_NAME="launch-build-agent-aws" \
-    CONTAINER_IMAGE_VERSION="patch-launch-cli-rebuild "
+    CONTAINER_IMAGE_VERSION="latest"
 
 ENV TOOLS_DIR="/home/launch/tools" \
     IS_PIPELINE=true

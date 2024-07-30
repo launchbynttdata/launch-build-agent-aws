@@ -1,6 +1,6 @@
 ARG LAUNCH_PROVIDER="aws"
 
-FROM ghcr.io/launchbynttdata/launch-build-agent-base:patch-launch-cli-rebuild as base
+FROM ghcr.io/launchbynttdata/launch-build-agent-base:latest as base
 
 ENV CONTAINER_REGISTRY="ghcr.io/launchbynttdata" \
     CONTAINER_IMAGE_NAME="launch-build-agent-aws" \

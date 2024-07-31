@@ -1,7 +1,6 @@
+FROM ghcr.io/launchbynttdata/launch-build-agent-base:latest as base
 ARG LAUNCH_PROVIDER="aws" \
     TARGETARCH
-
-FROM ghcr.io/launchbynttdata/launch-build-agent-base:latest as base
 
 ENV CONTAINER_REGISTRY="ghcr.io/launchbynttdata" \
     CONTAINER_IMAGE_NAME="launch-build-agent-aws" \

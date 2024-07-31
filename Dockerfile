@@ -1,4 +1,4 @@
-FROM ghcr.io/launchbynttdata/launch-build-agent-base:latest as base
+FROM ghcr.io/launchbynttdata/launch-build-agent-base:latest AS base
 ARG LAUNCH_PROVIDER="aws" \
     TARGETARCH
 
@@ -15,7 +15,10 @@ COPY ./.tool-versions "${TOOLS_DIR}/launch-build-agent/.tool-versions"
 COPY "./Makefile" "${TOOLS_DIR}/launch-build-agent/Makefile"
 
 # Allows us to rerun repo sync in the AWS manifest context
-RUN ${TOOLS_DIR}/launch-build-agent/install-awscliv2-${TARGETARCH}.sh
+RUN ${TOOLS_DIR}/launch-build-agent/install-awscliv2-${TARGETARCH}.sh \
+    && unzip awscliv2.zip
+    && ./aws/install \
+    && aws --version
 RUN rm -fr .repo/ components/ awscliv2.zip \
     && cd "${TOOLS_DIR}/launch-build-agent" \
     && make git-config \

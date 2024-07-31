@@ -1,6 +1,7 @@
 ARG LAUNCH_PROVIDER="aws"
 
 FROM ghcr.io/launchbynttdata/launch-build-agent-base:latest as base
+ARG TARGETARCH
 
 ENV CONTAINER_REGISTRY="ghcr.io/launchbynttdata" \
     CONTAINER_IMAGE_NAME="launch-build-agent-aws" \
@@ -8,6 +9,9 @@ ENV CONTAINER_REGISTRY="ghcr.io/launchbynttdata" \
 
 ENV TOOLS_DIR="/home/launch/tools" \
     IS_PIPELINE=true
+
+COPY ./scripts/install-awscliv2-${TARGETARCH}.sh ${TOOLS_DIR}/launch-build-agent/install-awscliv2-${TARGETARCH}.sh
+RUN ${TOOLS_DIR}/launch-build-agent/install-awscliv2-${TARGETARCH}.sh
 
 # Allows us to rerun repo sync in the AWS manifest context
 RUN rm -fr .repo/ components/

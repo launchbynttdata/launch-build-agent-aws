@@ -8,9 +8,7 @@ ENV CONTAINER_REGISTRY="ghcr.io/launchbynttdata" \
     TOOLS_DIR="/home/launch/tools" \
     IS_PIPELINE=true \
     BUILD_ACTIONS_DIR="${TOOLS_DIR}/launch-build-agent/components/build-actions" \
-    PATH="$PATH:${BUILD_ACTIONS_DIR}" \
-    JOB_NAME="${GIT_USERNAME}" \
-    JOB_EMAIL="${GIT_USERNAME}@${GIT_EMAIL_DOMAIN}"
+    PATH="$PATH:${BUILD_ACTIONS_DIR}"
 
 COPY ./scripts/install-awscliv2-${TARGETARCH}.sh ${TOOLS_DIR}/launch-build-agent/install-awscliv2-${TARGETARCH}.sh
 COPY ./.tool-versions "${TOOLS_DIR}/launch-build-agent/.tool-versions"

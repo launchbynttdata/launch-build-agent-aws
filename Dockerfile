@@ -9,13 +9,13 @@ ENV CONTAINER_REGISTRY="ghcr.io/launchbynttdata" \
     BUILD_ACTIONS_DIR="${TOOLS_DIR}/launch-build-agent/components/build-actions" \
     PATH="$PATH:${BUILD_ACTIONS_DIR}"
 
-COPY ./scripts/install-awscliv2-${TARGETARCH}.sh ${TOOLS_DIR}/launch-build-agent/install-awscliv2-${TARGETARCH}.sh
 COPY ./.tool-versions "${TOOLS_DIR}/launch-build-agent/.tool-versions"
 COPY "./Makefile" "${TOOLS_DIR}/launch-build-agent/Makefile"
 
 # Install aws-cli
 USER root
 ARG TARGETARCH
+COPY ./scripts/install-awscliv2-${TARGETARCH}.sh ${TOOLS_DIR}/launch-build-agent/install-awscliv2-${TARGETARCH}.sh
 RUN ${TOOLS_DIR}/launch-build-agent/install-awscliv2-${TARGETARCH}.sh
 USER launch
 

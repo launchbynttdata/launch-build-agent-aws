@@ -18,7 +18,7 @@ COPY "./Makefile" "${TOOLS_DIR}/launch-build-agent/Makefile"
 
 # Allows us to rerun repo sync in the AWS manifest context
 RUN ${TOOLS_DIR}/launch-build-agent/install-awscliv2-${TARGETARCH}.sh \
-    && rm -fr .repo/ components/ awscliv2.zip ./aws \
+    && rm -fr .repo/ components/ awscliv2.zip \
     && cd "${TOOLS_DIR}/launch-build-agent" \
     && make git-config \
     && make configure

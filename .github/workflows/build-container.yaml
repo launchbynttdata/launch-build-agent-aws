@@ -21,7 +21,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
       - uses: actions/checkout@v4
       - name: Build image
-        run: docker buildx build -t launch-build-agent-aws --file ./Dockerfile . --platform linux/amd64 --load
+        run: docker buildx build -t launch-build-agent-aws --file ./Dockerfile . --platform linux/amd64 --load # Ticket 133 to enable multi-architecture builds (linux/arm64)
       - name: Test image
         run: echo "command -v aws>/dev/null 2>&1 && git clone https://github.com/launchbynttdata/tf-aws-module_primitive-ssm_parameter.git; cd tf-aws-module_primitive-ssm_parameter; make configure" | docker run --user root launch-build-agent-aws
       - name: Log in to registry

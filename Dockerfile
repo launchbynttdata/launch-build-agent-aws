@@ -1,4 +1,4 @@
-FROM ghcr.io/launchbynttdata/launch-build-agent-base:patch-version-bump as base
+FROM ghcr.io/launchbynttdata/launch-build-agent-base:latest as base
 ARG LAUNCH_PROVIDER="aws"
 
 ENV CONTAINER_REGISTRY="ghcr.io/launchbynttdata" \

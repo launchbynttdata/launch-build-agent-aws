@@ -1,4 +1,4 @@
-FROM ghcr.io/launchbynttdata/launch-build-agent-base:latest as base
+FROM ghcr.io/launchbynttdata/launch-build-agent-base:feature-npm-make-commands as base
 ARG LAUNCH_PROVIDER="aws"
 
 ENV CONTAINER_REGISTRY="ghcr.io/launchbynttdata" \

@@ -1,5 +1,6 @@
 .repo/
 components/
+.idea/
 
 .pre-commit-config.yaml
 Makefile.container.includes

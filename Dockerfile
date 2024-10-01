@@ -1,10 +1,7 @@
 FROM ghcr.io/launchbynttdata/launch-build-agent-base:latest as base
 ARG LAUNCH_PROVIDER="aws"
 
-ENV CONTAINER_REGISTRY="ghcr.io/launchbynttdata" \
-    CONTAINER_IMAGE_NAME="launch-build-agent-aws" \
-    CONTAINER_IMAGE_VERSION="latest" \
-    TOOLS_DIR="/home/launch/tools" \
+ENV TOOLS_DIR="/home/launch/tools" \
     IS_PIPELINE=true \
     BUILD_ACTIONS_DIR="${TOOLS_DIR}/launch-build-agent/components/build-actions" \
     PATH="$PATH:${BUILD_ACTIONS_DIR}"

@@ -1,4 +1,4 @@
-FROM ghcr.io/launchbynttdata/launch-build-agent-base:1.6.0 as base
+FROM ghcr.io/launchbynttdata/launch-build-agent-base:1.6.1 as base
 ARG LAUNCH_PROVIDER="aws"
 
 ENV TOOLS_DIR="/home/launch/tools" \
